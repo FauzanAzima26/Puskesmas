@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "full_name": "John Doe",
+      "email": "john@example.com",
+      "start_date": "1/1/2023",
+      "salary": "$1000",
+      "status": "Active"
+    },
+    {
+      "id": 2,
+      "full_name": "Jane Smith",
+      "email": "jane@example.com",
+      "start_date": "2/1/2023",
+      "salary": "$1500",
+      "status": "Inactive"
+    }
+  ]
+}
