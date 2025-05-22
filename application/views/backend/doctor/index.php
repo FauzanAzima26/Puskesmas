@@ -41,6 +41,8 @@
   </div>
   <div class="offcanvas-body flex-grow-1">
     <form class="add-new-record pt-0 row g-2" id="form-add-new-record" onsubmit="return false">
+      <input type="hidden" name="id_dokter" id="id_dokter">
+
       <!-- Nama -->
       <div class="col-sm-12">
         <label class="form-label" for="nama">Nama Dokter</label>

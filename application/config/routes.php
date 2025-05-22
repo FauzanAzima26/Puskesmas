@@ -67,6 +67,8 @@ $route['doctor'] = 'doctor/index';
 
 $route['doctor/store'] = 'doctor/store';
 $route['doctor/get_data'] = 'doctor/get_data';
+$route['doctor/edit/(:num)'] = 'doctor/edit/$1';
+$route['doctor/update'] = 'doctor/update';
 
 $route['obat'] = 'obat/index';
 

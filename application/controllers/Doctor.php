@@ -17,50 +17,88 @@ class Doctor extends CI_Controller
 
   public function store()
   {
+    $id_dokter = $this->input->post('id_dokter');
     $nama = $this->input->post('nama');
     $spesialisasi = $this->input->post('spesialisasi');
     $jenis_kelamin = $this->input->post('jenis_kelamin');
     $no_hp = $this->input->post('no_hp');
 
-    // Generate email unik
-    $email = strtolower(str_replace(' ', '', $nama)) . '@puskesmas.com';
-    $counter = 1;
-    while ($this->User_model->get_user_by_email($email)) {
-      $email = strtolower(str_replace(' ', '', $nama)) . $counter++ . '@puskesmas.com';
-    }
+    if ($id_dokter) {
+      // ==== UPDATE ====
 
-    // Data untuk tb_users
-    $user_data = [
-      'email' => $email,
-      'password' => password_hash('123456', PASSWORD_DEFAULT), // default password
-      'role' => 'dokter',
-      'created_at' => date('Y-m-d H:i:s'),
-      'is_email_verified' => 1
-    ];
+      // Ambil data dokter untuk ambil id_user
+      $dokter = $this->Doctor_model->get_by_id($id_dokter);
+      if (!$dokter) {
+        echo json_encode(['status' => false, 'message' => 'Dokter tidak ditemukan']);
+        return;
+      }
 
-    $id_user = $this->User_model->insert_user($user_data);
+      // Generate email baru berdasarkan nama
+      $email = strtolower(str_replace(' ', '', $nama)) . '@puskesmas.com';
+      $counter = 1;
+      while (
+        $this->User_model->get_user_by_email($email) &&
+        $this->User_model->get_user_by_email($email)->id_user != $dokter->id_user // pastikan bukan email dirinya sendiri
+      ) {
+        $email = strtolower(str_replace(' ', '', $nama)) . $counter++ . '@puskesmas.com';
+      }
 
-    // Data untuk tb_dokter
-    $doctor_data = [
-      'id_user' => $id_user,
-      'nama' => $nama,
-      'spesialisasi' => $spesialisasi,
-      'jenis_kelamin' => $jenis_kelamin,
-      'no_hp' => $no_hp
-    ];
+      // Update tb_users
+      $this->db->where('id_user', $dokter->id_user);
+      $this->db->update('tb_users', ['email' => $email]);
 
-    $insert = $this->Doctor_model->insert($doctor_data);
+      // Update tb_dokter
+      $doctor_data = [
+        'nama' => $nama,
+        'spesialisasi' => $spesialisasi,
+        'jenis_kelamin' => $jenis_kelamin,
+        'no_hp' => $no_hp
+      ];
 
-    if ($insert) {
+      $this->db->where('id_dokter', $id_dokter);
+      $update = $this->db->update('tb_dokter', $doctor_data);
+
       echo json_encode([
-        'status' => true,
-        'message' => 'Data dokter berhasil disimpan',
+        'status' => $update,
+        'message' => $update ? 'Data dokter berhasil diperbarui' : 'Update gagal',
         'email' => $email
       ]);
     } else {
+      // ==== INSERT ====
+
+      // Generate email unik
+      $email = strtolower(str_replace(' ', '', $nama)) . '@puskesmas.com';
+      $counter = 1;
+      while ($this->User_model->get_user_by_email($email)) {
+        $email = strtolower(str_replace(' ', '', $nama)) . $counter++ . '@puskesmas.com';
+      }
+
+      // Data untuk tb_users
+      $user_data = [
+        'email' => $email,
+        'password' => password_hash('123456', PASSWORD_DEFAULT),
+        'role' => 'dokter',
+        'created_at' => date('Y-m-d H:i:s'),
+        'is_email_verified' => 1
+      ];
+
+      $id_user = $this->User_model->insert_user($user_data);
+
+      // Data untuk tb_dokter
+      $doctor_data = [
+        'id_user' => $id_user,
+        'nama' => $nama,
+        'spesialisasi' => $spesialisasi,
+        'jenis_kelamin' => $jenis_kelamin,
+        'no_hp' => $no_hp
+      ];
+
+      $insert = $this->Doctor_model->insert($doctor_data);
+
       echo json_encode([
-        'status' => false,
-        'message' => 'Gagal insert dokter'
+        'status' => $insert ? true : false,
+        'message' => $insert ? 'Data dokter berhasil disimpan' : 'Gagal insert dokter',
+        'email' => $email
       ]);
     }
   }
@@ -79,5 +117,16 @@ class Doctor extends CI_Controller
       echo json_encode(['error' => $e->getMessage()]);
     }
   }
+
+  public function edit($id)
+  {
+    $doctor = $this->Doctor_model->get_by_id($id);
+    if ($doctor) {
+      echo json_encode(['status' => true, 'data' => $doctor]);
+    } else {
+      echo json_encode(['status' => false, 'message' => 'Data dokter tidak ditemukan']);
+    }
+  }
+
 
 }

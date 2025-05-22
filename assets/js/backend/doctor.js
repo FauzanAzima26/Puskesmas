@@ -1,68 +1,94 @@
 $(document).ready(function () {
-	const storeUrl = document.getElementById("doctor-form").dataset.storeUrl;
-	const getDataUrl = document.getElementById("doctor-form").dataset.getDataUrl;
+  const storeUrl = document.getElementById("doctor-form").dataset.storeUrl;
+  const getDataUrl = document.getElementById("doctor-form").dataset.getDataUrl;
 
-	// Inisialisasi DataTable dengan ajax load
-	const table = $(".doctor").DataTable({
-		ajax: {
-			url: getDataUrl,
-			dataSrc: "data", // pastikan JSON response ada key 'data' yang berisi array data
-		},
-		columns: [
-			{
-				// nomor urut
-				data: null,
-				render: function (data, type, row, meta) {
-					return meta.row + 1;
-				},
-			},
-			{ data: "nama" },
-			{ data: "spesialisasi" },
-			{ data: "jenis_kelamin" },
-			{ data: "no_hp" },
-			{
-				data: null,
-				orderable: false,
-				render: function (data, type, row) {
-					return `
-        <button class="btn btn-sm btn-primary edit-btn" data-id="#">Edit</button>
-        <button class="btn btn-sm btn-danger delete-btn" data-id="#">Delete</button>
-      `;
-				},
-			},
-		],
-	});
+  let editingId = null;
 
-	// Submit form add new record via AJAX
-	$("#form-add-new-record").on("submit", function (e) {
-		e.preventDefault();
+  // Inisialisasi DataTable
+  const table = $(".doctor").DataTable({
+    ajax: {
+      url: getDataUrl,
+      dataSrc: "data",
+    },
+    columns: [
+      { data: null, render: (data, type, row, meta) => meta.row + 1 },
+      { data: "nama" },
+      { data: "spesialisasi" },
+      { data: "jenis_kelamin" },
+      { data: "no_hp" },
+      {
+        data: null,
+        orderable: false,
+        render: (data, type, row) => `
+          <button class="btn btn-sm btn-primary edit-btn" data-id="${row.id_dokter}">Edit</button>
+          <button class="btn btn-sm btn-danger delete-btn" data-id="${row.id_dokter}">Delete</button>
+        `,
+      },
+    ],
+  });
 
-		$.ajax({
-			url: storeUrl,
-			method: "POST",
-			data: $(this).serialize(),
-			dataType: "json",
-			success: function (response) {
-				if (response.status) {
-					$("#add-new-record").offcanvas("hide");
-					$("#form-add-new-record")[0].reset();
-					table.ajax.reload();
+  // Form submit: ADD or UPDATE
+  $("#form-add-new-record").on("submit", function (e) {
+    e.preventDefault();
 
-					Swal.fire({
-						icon: "success",
-						title: "Dokter berhasil ditambahkan!",
-						html: `
-            <b>Email login:</b> ${response.email}<br>
-            <b>Password default:</b> 123456
-          `,
-					});
-				} else {
-					Swal.fire("Gagal!", response.message, "error");
-				}
-			},
-			error: function () {
-				Swal.fire("Oops!", "Terjadi kesalahan saat mengirim data", "error");
-			},
-		});
-	});
+    const $btn = $(".data-submit");
+    $btn.prop("disabled", true);
+
+    const formData = $(this).serialize() + (editingId ? `&id_dokter=${editingId}` : "");
+    const url = storeUrl;
+
+    $.ajax({
+      url: url,
+      method: "POST",
+      data: formData,
+      dataType: "json",
+      success: function (response) {
+        if (response.status) {
+          $("#add-new-record").offcanvas("hide");
+          $("#form-add-new-record")[0].reset();
+          table.ajax.reload();
+          $(".data-submit").text("Submit");
+
+          Swal.fire({
+            icon: "success",
+            title: editingId ? "Data berhasil diperbarui!" : "Dokter berhasil ditambahkan!",
+            html: editingId
+              ? response.message
+              : `<b>Email login:</b> ${response.email}<br><b>Password default:</b> 123456`,
+          });
+          editingId = null;
+        } else {
+          Swal.fire("Gagal!", response.message, "error");
+        }
+      },
+      error: function () {
+        Swal.fire("Oops!", "Terjadi kesalahan saat mengirim data", "error");
+      },
+      complete: function () {
+        $btn.prop("disabled", false);
+      },
+    });
+  });
+
+  // Saat klik Edit
+  $(document).on("click", ".edit-btn", function () {
+    const id = $(this).data("id");
+
+    $.get(`${getDataUrl.replace("get_data", "edit/")}${id}`, function (res) {
+      if (res.status) {
+        const d = res.data;
+        editingId = d.id_dokter;
+
+        $("#nama").val(d.nama);
+        $("#spesialisasi").val(d.spesialisasi);
+        $("#jenis_kelamin").val(d.jenis_kelamin);
+        $("#no_hp").val(d.no_hp);
+
+        $("#add-new-record").offcanvas("show");
+        $(".data-submit").text("Update");
+      } else {
+        Swal.fire("Gagal", res.message, "error");
+      }
+    }, "json");
+  });
 });
