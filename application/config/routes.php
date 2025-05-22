@@ -64,5 +64,12 @@ $route['auth/process_otp'] = 'auth/process_otp';
 
 $route['dashboard'] = 'dashboard/index';
 $route['doctor'] = 'doctor/index';
+
 $route['doctor/store'] = 'doctor/store';
 $route['doctor/get_data'] = 'doctor/get_data';
+
+$route['obat'] = 'obat/index';
+
+$route['penyakit'] = 'penyakit/index';
+
+$route['ruangan'] = 'ruangan/index';

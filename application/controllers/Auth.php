@@ -30,9 +30,12 @@ class Auth extends CI_Controller
         // Cek apakah user ditemukan, password cocok, dan email sudah diverifikasi
         if ($user && password_verify($password, $user->password)) {
             if ($user->is_email_verified == 1) {
-                // Set session
-                $this->session->set_userdata('id_user', $user->id);
-                $this->session->set_userdata('email', $user->email);
+                // Set session termasuk role
+                $this->session->set_userdata([
+                    'id_user' => $user->id,
+                    'email' => $user->email,
+                    'role' => $user->role
+                ]);
 
                 // Redirect ke dashboard
                 redirect('dashboard/index');
