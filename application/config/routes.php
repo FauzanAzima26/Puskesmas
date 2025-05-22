@@ -67,6 +67,9 @@ $route['auth/process_otp'] = 'auth/process_otp';
 $route['dashboard'] = 'dashboard/index';
 $route['doctor'] = 'doctor/index';
 
+$route['pasien'] = 'pasien/index';
+$route['pasien/get_data'] = 'pasien/get_data';
+
 $route['doctor/store'] = 'doctor/store';
 $route['doctor/get_data'] = 'doctor/get_data';
 $route['doctor/edit/(:num)'] = 'doctor/edit/$1';

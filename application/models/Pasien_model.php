@@ -5,7 +5,11 @@ class Pasien_model extends CI_Model
 {
     public function insert_pasien($data)
     {
-        // Simpan data pasien (nama, nik, no_bpjs, jenis_kelamin, alamat, tgl_lahir, no_hp, avatar)
         return $this->db->insert('tb_pasien', $data);
+    }
+
+    public function get_all()
+    {
+        return $this->db->get('tb_pasien')->result();
     }
 }

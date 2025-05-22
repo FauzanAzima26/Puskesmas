@@ -27,6 +27,16 @@
       </a>
     </li>
 
+    <?php if ($role == 'admin' || $role == 'doctor'): ?>
+      <!-- Pasien -->
+      <li class="menu-item <?= ($this->router->fetch_class() == 'pasien') ? 'active' : '' ?>">
+        <a href="<?= site_url('pasien') ?>" class="menu-link">
+          <i class="menu-icon tf-icons ti ti-user"></i>
+          <div data-i18n="Pasien">Pasien</div>
+        </a>
+      </li>
+    <?php endif; ?>
+
     <?php if ($role == 'admin'): ?>
       <!-- Doctor -->
       <li class="menu-item <?= ($this->router->fetch_class() == 'doctor') ? 'active' : '' ?>">
