@@ -53,6 +53,8 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['seeder'] = 'seeder';
+
 $route['login'] = 'auth/login';
 $route['process_login'] = 'auth/process_login';
 $route['auth/logout'] = 'auth/logout';
@@ -69,6 +71,8 @@ $route['doctor/store'] = 'doctor/store';
 $route['doctor/get_data'] = 'doctor/get_data';
 $route['doctor/edit/(:num)'] = 'doctor/edit/$1';
 $route['doctor/update'] = 'doctor/update';
+$route['doctor/delete/(:num)'] = 'doctor/delete/$1';
+
 
 $route['obat'] = 'obat/index';
 

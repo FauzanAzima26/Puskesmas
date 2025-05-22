@@ -61,6 +61,16 @@
       </li>
     <?php endif; ?>
 
+    <?php if ($role == 'pasien'): ?>
+      <!-- Riwayat Berobat -->
+      <li class="menu-item <?= ($this->router->fetch_class() == 'riwayat') ? 'active' : '' ?>">
+        <a href="<?= site_url('riwayat') ?>" class="menu-link">
+          <i class="menu-icon tf-icons ti ti-notebook"></i>
+          <div data-i18n="Riwayat">Riwayat Berobat</div>
+        </a>
+      </li>
+    <?php endif; ?>
+
     <!-- Logout -->
     <li class="menu-item">
       <a href="<?= site_url('auth/logout') ?>" class="menu-link">

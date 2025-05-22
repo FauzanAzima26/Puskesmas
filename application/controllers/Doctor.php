@@ -128,5 +128,25 @@ class Doctor extends CI_Controller
     }
   }
 
+  public function delete($id)
+  {
+    // Cek apakah dokter ada
+    $doctor = $this->Doctor_model->get_by_id($id);
+    if (!$doctor) {
+      echo json_encode(['status' => false, 'message' => 'Data dokter tidak ditemukan']);
+      return;
+    }
 
+    // Hapus dari tabel tb_users dan tb_dokter
+    $this->db->trans_start();
+    $this->db->delete('tb_dokter', ['id_dokter' => $id]);
+    $this->db->delete('tb_users', ['id_user' => $doctor->id_user]);
+    $this->db->trans_complete();
+
+    if ($this->db->trans_status() === false) {
+      echo json_encode(['status' => false, 'message' => 'Gagal menghapus data']);
+    } else {
+      echo json_encode(['status' => true, 'message' => 'Data dokter berhasil dihapus']);
+    }
+  }
 }
