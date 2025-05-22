@@ -64,7 +64,7 @@
     <?php if ($role == 'pasien'): ?>
       <!-- Riwayat Berobat -->
       <li class="menu-item <?= ($this->router->fetch_class() == 'riwayat') ? 'active' : '' ?>">
-        <a href="<?= site_url('riwayat') ?>" class="menu-link">
+        <a href="<?= site_url('riwayat_berobat') ?>" class="menu-link">
           <i class="menu-icon tf-icons ti ti-notebook"></i>
           <div data-i18n="Riwayat">Riwayat Berobat</div>
         </a>
