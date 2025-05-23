@@ -32,7 +32,7 @@ class Auth extends CI_Controller
             if ($user->is_email_verified == 1) {
                 // Set session termasuk role
                 $this->session->set_userdata([
-                    'id_user' => $user->id,
+                    'id_user' => $user->id_user,
                     'email' => $user->email,
                     'role' => $user->role
                 ]);
@@ -69,9 +69,9 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[tb_users.email]|trim');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|max_length[50]');
         $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required|in_list[L,P]');
-        $this->form_validation->set_rules('nik', 'NIK', 'numeric|exact_length[16]');
-        $this->form_validation->set_rules('no_bpjs', 'No BPJS', 'max_length[20]');
-        $this->form_validation->set_rules('no_hp', 'No HP', 'numeric|min_length[11]|max_length[12]');
+        $this->form_validation->set_rules('nik', 'NIK', 'numeric|exact_length[2]');
+        $this->form_validation->set_rules('no_bpjs', 'No BPJS', 'max_length[2]');
+        $this->form_validation->set_rules('no_hp', 'No HP', 'numeric|min_length[2]|max_length[12]');
         $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim|min_length[10]|max_length[255]');
 

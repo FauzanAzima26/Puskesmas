@@ -72,6 +72,12 @@
     <?php endif; ?>
 
     <?php if ($role == 'pasien'): ?>
+      <li class="menu-item <?= ($this->router->fetch_class() == 'antrian') ? 'active' : '' ?>">
+        <a href="<?= site_url('antrian') ?>" class="menu-link">
+          <i class="menu-icon tf-icons ti ti-ticket"></i> 
+          <div data-i18n="Riwayat">Antrian</div>
+        </a>
+      </li>
       <!-- Riwayat Berobat -->
       <li class="menu-item <?= ($this->router->fetch_class() == 'riwayat') ? 'active' : '' ?>">
         <a href="<?= site_url('riwayat_berobat') ?>" class="menu-link">

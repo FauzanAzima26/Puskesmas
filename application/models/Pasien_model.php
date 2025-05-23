@@ -12,4 +12,10 @@ class Pasien_model extends CI_Model
     {
         return $this->db->get('tb_pasien')->result();
     }
+
+    public function get_by_user_id($user_id)
+    {
+        return $this->db->get_where('tb_pasien', ['id_user' => $user_id])->row();
+    }
+
 }
