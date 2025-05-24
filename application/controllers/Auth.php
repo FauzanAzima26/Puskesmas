@@ -170,6 +170,13 @@ class Auth extends CI_Controller
                 throw new Exception('Gagal menyimpan data pasien');
             }
 
+            $pasien_id = $this->db->insert_id(); // Dapatkan id_pasien terakhir yang disimpan
+
+            // Update tb_users
+            $this->db->where('id_user', $user_id);
+            $this->db->update('tb_users', ['id_pasien' => $pasien_id]);
+
+
             // Generate OTP
             $otp_code = mt_rand(100000, 999999);
             $expired_at = date('Y-m-d H:i:s', strtotime('+24 hours'));
