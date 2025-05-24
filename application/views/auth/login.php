@@ -120,7 +120,7 @@
                   <input class="form-check-input" type="checkbox" id="remember-me" />
                   <label class="form-check-label" for="remember-me"> Remember Me </label>
                 </div>
-                <a href="<?php echo site_url('auth/forgot_password'); ?>">
+                <a href="<?php echo site_url('forgot_password'); ?>">
                   <p class="mb-0">Forgot Password?</p>
                 </a>
               </div>

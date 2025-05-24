@@ -25,4 +25,11 @@ class User_model extends CI_Model
         $this->db->update('tb_users', $data);
     }
 
+    // Di User_model.php
+    public function update_user_by_email($email, $data)
+    {
+        $this->db->where('email', $email);
+        return $this->db->update('tb_users', $data);
+    }
+
 }

@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -14,6 +13,7 @@ class Auth extends CI_Controller
         $this->load->helper('debug');
 
     }
+
     public function login()
     {
         $this->load->view('auth/login'); // pastikan file view ini juga ada
@@ -310,5 +310,185 @@ class Auth extends CI_Controller
         }
     }
 
+    public function forgot_password()
+    {
+        $this->load->view('auth/forgot');
+    }
+
+    public function process_forgot_password()
+    {
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+
+        if ($this->form_validation->run() === FALSE) {
+            $this->session->set_flashdata('error', validation_errors());
+            redirect('auth/forgot_password');
+            return;
+        }
+
+        $email = $this->input->post('email', true);
+
+        // Cek apakah email terdaftar
+        $user = $this->User_model->get_user_by_email($email);
+        if (!$user) {
+            $this->session->set_flashdata('error', 'Email tidak terdaftar');
+            redirect('auth/forgot');
+            return;
+        }
+
+        // Generate OTP 6 digit
+        $otp = rand(100000, 999999);
+        $expired_at = date('Y-m-d H:i:s', strtotime('+10 minutes'));
+
+        // Simpan OTP ke database
+        $this->db->delete('tb_password_reset', ['email' => $email]); // Hapus OTP lama
+
+        $otp_data = [
+            'email' => $email,
+            'token' => $otp,
+            'expired_at' => $expired_at,
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+
+        if (!$this->db->insert('tb_password_reset', $otp_data)) {
+            $this->session->set_flashdata('error', 'Gagal menyimpan kode OTP');
+            redirect('auth/forgot');
+            return;
+        }
+
+        // Kirim OTP via email
+        $email_sent = $this->_send_otp_email($email, $otp);
+
+        if (!$email_sent) {
+            $this->session->set_flashdata('error', 'Gagal mengirim email OTP. Silakan coba lagi.');
+            redirect('auth/forgot');
+            return;
+        }
+
+        // Set session and redirect
+        $this->session->set_userdata([
+            'reset_email' => $email,
+            'otp_code' => $otp // Store OTP in session for verification
+        ]);
+
+        redirect('auth/verify_otp_reset');
+    }
+
+    private function _send_otp_email($email, $otp)
+    {
+        $this->load->library('email');
+
+        $config = [
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.gmail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'zfau261024@gmail.com',
+            'smtp_pass' => 'jexw pbqk kveq rutb', // Use App Password if 2FA is enabled
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'newline' => "\r\n",
+            'smtp_timeout' => 30,
+            'crlf' => "\r\n",
+            'wordwrap' => TRUE
+        ];
+
+        $this->email->initialize($config);
+
+        $this->email->from('zfau261024@gmail.com', 'Puskesmas');
+        $this->email->to($email);
+        $this->email->subject('Password Reset OTP');
+
+        $message = $this->load->view('auth/email_reset', [
+            'otp_code' => $otp,
+            'expiry_minutes' => 10
+        ], true);
+
+        $this->email->message($message);
+
+        if (!$this->email->send()) {
+            log_message('error', 'Email Error: ' . $this->email->print_debugger());
+            return false;
+        }
+
+        return true;
+    }
+
+    public function verify_otp_reset()
+    {
+        if (!$this->session->userdata('reset_email')) {
+            redirect('auth/forgot');
+        }
+
+        $this->load->view('auth/verify_otp_reset'); // ganti dari 'auth/reset'
+    }
+
+    public function verify_otp_reset_password()
+    {
+        $email = $this->session->userdata('reset_email');
+        $otp = $this->input->post('otp');
+
+        if (!$email || !$otp) {
+            $this->session->set_flashdata('error', 'Invalid OTP verification');
+            redirect('auth/verify_otp_reset');
+            return;
+        }
+
+        // Verify OTP
+        $this->db->where('email', $email);
+        $this->db->where('token', $otp);
+        $this->db->where('expired_at >=', date('Y-m-d H:i:s'));
+        $reset_data = $this->db->get('tb_password_reset')->row();
+
+        if (!$reset_data) {
+            $this->session->set_flashdata('error', 'Kode OTP salah atau kadaluarsa');
+            redirect('auth/verify_otp_reset');
+            return;
+        }
+
+        // OTP valid, set session and redirect to password reset
+        $this->session->set_userdata('otp_verified', true);
+        redirect('auth/reset_password');
+    }
+
+    public function change_password_form()
+    {
+        if (!$this->session->userdata('otp_verified')) {
+            redirect('auth/forgot');
+        }
+
+        $data = [
+            'email' => $this->session->userdata('reset_email'),
+            'token' => $this->session->userdata('otp_code')
+        ];
+
+        $this->load->view('auth/reset', $data);
+    }
+
+    public function change_password()
+    {
+        if (!$this->session->userdata('otp_verified')) {
+            redirect('auth/forgot');
+        }
+
+        $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
+        $this->form_validation->set_rules('confirm_password', 'Konfirmasi Password', 'required|matches[password]');
+
+        if ($this->form_validation->run() === FALSE) {
+            $this->session->set_flashdata('error', validation_errors());
+            redirect('auth/change_password_form');
+            return;
+        }
+
+        $email = $this->session->userdata('reset_email');
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+
+        $this->User_model->update_user_by_email($email, ['password' => $password]);
+        $this->db->delete('tb_password_reset', ['email' => $email]);
+
+        // Bersihkan session
+        $this->session->unset_userdata(['reset_email', 'otp_verified']);
+
+        $this->session->set_flashdata('success', 'Password berhasil diubah');
+        redirect('auth/login');
+    }
 }
 

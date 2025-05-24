@@ -61,6 +61,13 @@ $route['auth/logout'] = 'auth/logout';
 $route['register'] = 'auth/register';
 $route['auth/process_register'] = 'auth/process_register';
 
+$route['forgot_password'] = 'auth/forgot_password';
+$route['auth/process_forgot_password'] = 'auth/process_forgot_password';
+$route['auth/verify_otp_reset'] = 'auth/verify_otp_reset';
+$route['auth/verify_otp_reset_password'] = 'auth/verify_otp_reset_password';
+$route['auth/reset_password'] = 'auth/change_password_form';
+$route['auth/process_reset_password'] = 'auth/change_password';
+
 $route['auth/verify_otp'] = 'auth/verify_otp';
 $route['auth/process_otp'] = 'auth/process_otp';
 
