@@ -91,5 +91,6 @@ $route['penyakit'] = 'penyakit/index';
 $route['ruangan'] = 'ruangan/index';
 
 $route['riwayat_berobat'] = 'riwayat_berobat/index';
+$route['riwayat/store'] = 'riwayat_berobat/store';
 
 $route['antrian'] = 'antrian/index';

@@ -1,14 +1,8 @@
-<div id="pasien-form" data-store-url="<?= site_url('doctor/store') ?>"
+<div id="pasien-form" data-store-url="<?= site_url('riwayat/store') ?>"
     data-get-data-url="<?= site_url('pasien/get_data') ?>">
 </div>
 
-
 <div class="container-xxl flex-grow-1 container-p-y">
-    <div class="mb-3">
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#add-new-record">
-            <i class="ti ti-plus"></i> Add New
-        </button>
-    </div>
 
     <!-- DataTable with Buttons -->
     <div class="card">
@@ -18,12 +12,13 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Tgl periksa</th>
-                        <th>Keluhan</th>
-                        <th>Diagnosa</th>
-                        <th>Tindakan</th>
-                        <th>Resep</th>
-                        <th>Dokter</th>
+                        <th>NIK</th>
+                        <th>No BPJS</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Alamat</th>
+                        <th>Tgl Lahir</th>
+                        <th>No HP</th>
+                        <th>Profile</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -32,48 +27,49 @@
             </table>
         </div>
     </div>
-
-    <!-- Offcanvas Add New Record sudah ada -->
 </div>
 
-<!-- Modal to add new record -->
-<div class="offcanvas offcanvas-end" id="add-new-record">
-    <div class="offcanvas-header border-bottom">
-        <h5 class="offcanvas-title" id="exampleModalLabel">New Record</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="add-riwayat-berobat">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Tambah Riwayat Berobat</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
-    <div class="offcanvas-body flex-grow-1">
-        <form class="add-new-record pt-0 row g-2" id="form-add-new-record" onsubmit="return false">
-            <input type="hidden" name="id_dokter" id="id_dokter">
+    <div class="offcanvas-body">
+        <form id="form-riwayat-berobat">
+            <input type="hidden" name="id_riwayat" id="id_riwayat">
+            <input type="hidden" name="id_pasien" id="id_pasien">
+            <?php if (isset($dokter) && isset($dokter['id_dokter'])): ?>
+                <input type="hidden" name="id_dokter" id="id_dokter" value="<?= $dokter['id_dokter']; ?>">
+            <?php endif; ?>
 
-            <!-- Nama -->
-            <div class="col-sm-12">
-                <label class="form-label" for="nama">Nama Dokter</label>
-                <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Lengkap" required />
+            <div class="mb-3">
+                <label for="tgl_periksa" class="form-label">Tanggal Periksa</label>
+                <input type="date" class="form-control" name="tgl_periksa" id="tgl_periksa" required>
             </div>
-            <!-- Spesialisasi -->
-            <div class="col-sm-12">
-                <label class="form-label" for="spesialisasi">Spesialisasi</label>
-                <input type="text" id="spesialisasi" name="spesialisasi" class="form-control"
-                    placeholder="Contoh: Anak, Umum" required />
+
+            <div class="mb-3">
+                <label for="keluhan" class="form-label">Keluhan</label>
+                <textarea class="form-control" name="keluhan" id="keluhan" required></textarea>
             </div>
-            <!-- Jenis Kelamin -->
-            <div class="col-sm-12">
-                <label class="form-label" for="jenis_kelamin">Jenis Kelamin</label>
-                <select id="jenis_kelamin" name="jenis_kelamin" class="form-control" required>
-                    <option value="">-- Pilih --</option>
-                    <option value="Laki-Laki">Laki-laki</option>
-                    <option value="Perempuan">Perempuan</option>
-                </select>
+
+            <div class="mb-3">
+                <label for="diagnosa" class="form-label">Diagnosa</label>
+                <textarea class="form-control" name="diagnosa" id="diagnosa" required></textarea>
             </div>
-            <!-- No HP -->
-            <div class="col-sm-12">
-                <label class="form-label" for="no_hp">No HP</label>
-                <input type="text" id="no_hp" name="no_hp" class="form-control" placeholder="08xxxxxxxxxx" required />
+
+            <div class="mb-3">
+                <label for="tindakan" class="form-label">Tindakan</label>
+                <textarea class="form-control" name="tindakan" id="tindakan" required></textarea>
             </div>
-            <div class="col-sm-12">
-                <button type="submit" class="btn btn-primary data-submit me-sm-4 me-1">Submit</button>
-                <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">Cancel</button>
+
+            <div class="mb-3">
+                <label for="resep" class="form-label">Resep</label>
+                <textarea class="form-control" name="resep" id="resep" required></textarea>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="reset" class="btn btn-secondary" data-bs-dismiss="offcanvas">Batal</button>
             </div>
         </form>
     </div>

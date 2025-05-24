@@ -16,7 +16,8 @@ class Auth extends CI_Controller
 
     public function login()
     {
-        $this->load->view('auth/login'); // pastikan file view ini juga ada
+        $this->load->view('auth/login'); 
+
     }
 
     public function process_login()
@@ -33,6 +34,7 @@ class Auth extends CI_Controller
                 // Set session termasuk role
                 $this->session->set_userdata([
                     'id_user' => $user->id_user,
+                    'id_dokter' => $user->id_dokter,
                     'email' => $user->email,
                     'role' => $user->role
                 ]);

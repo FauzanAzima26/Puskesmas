@@ -1,8 +1,17 @@
 <?php
 class Pasien extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Doctor_model');
+    }
+    
     public function index()
     {
+        $id_user = $this->session->userdata('id_user');
+        $data['dokter'] = $this->Doctor_model->get_by_id($id_user); // sesuaikan fungsi modelnya
+
         $data['title'] = 'Pasien';
         $data['content'] = 'backend/pasien/index';
         $this->load->view('backend/layouts/header', $data);
