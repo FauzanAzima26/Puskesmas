@@ -103,3 +103,8 @@ $("#form-riwayat-berobat").submit(function (e) {
 		},
 	});
 });
+
+$(document).on("click", ".detail-btn", function () {
+	const idPasien = $(this).data("id");
+	window.location.href = `http://localhost/CI/www.puskesmas-digital.com/index.php/riwayat_berobat/index/${idPasien}`;
+});

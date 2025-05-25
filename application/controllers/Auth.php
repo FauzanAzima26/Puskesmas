@@ -35,6 +35,7 @@ class Auth extends CI_Controller
                 $this->session->set_userdata([
                     'id_user' => $user->id_user,
                     'id_dokter' => $user->id_dokter,
+                    'id_pasien' => $user->id_pasien,
                     'email' => $user->email,
                     'role' => $user->role
                 ]);

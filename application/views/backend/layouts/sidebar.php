@@ -78,11 +78,10 @@
           <div data-i18n="Riwayat">Antrian</div>
         </a>
       </li>
-      <!-- Riwayat Berobat -->
-      <li class="menu-item <?= ($this->router->fetch_class() == 'riwayat') ? 'active' : '' ?>">
+      <li class="menu-item <?= ($this->router->fetch_class() == 'riwayat_berobat') ? 'active' : '' ?>">
         <a href="<?= site_url('riwayat_berobat') ?>" class="menu-link">
           <i class="menu-icon tf-icons ti ti-notebook"></i>
-          <div data-i18n="Riwayat">Riwayat Berobat</div>
+         <span class="menu-text">Riwayat Berobat</span>
         </a>
       </li>
     <?php endif; ?>
