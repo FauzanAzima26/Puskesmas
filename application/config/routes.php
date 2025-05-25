@@ -94,6 +94,8 @@ $route['penyakit/store'] = 'penyakit/store';
 $route['penyakit/get_data'] = 'penyakit/get_data';
 
 $route['ruangan'] = 'ruangan/index';
+$route['ruangan/store'] = 'ruangan/store';
+$route['ruangan/get_data'] = 'ruangan/get_data';
 
 $route['riwayat_berobat'] = 'riwayat_berobat/index';
 $route['riwayat/store'] = 'riwayat_berobat/store';

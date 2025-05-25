@@ -35,6 +35,13 @@
           <div data-i18n="Pasien">Pasien</div>
         </a>
       </li>
+      <!-- Obat -->
+      <li class="menu-item <?= ($this->router->fetch_class() == 'obat') ? 'active' : '' ?>">
+        <a href="<?= site_url('obat') ?>" class="menu-link">
+          <i class="menu-icon tf-icons ti ti-capsule"></i>
+          <div data-i18n="Obat">Obat</div>
+        </a>
+      </li>
     <?php endif; ?>
 
     <?php if ($role == 'admin'): ?>
@@ -43,14 +50,6 @@
         <a href="<?= site_url('doctor') ?>" class="menu-link">
           <i class="menu-icon tf-icons ti ti-app-window"></i>
           <div data-i18n="Doctor">Doctor</div>
-        </a>
-      </li>
-
-      <!-- Obat -->
-      <li class="menu-item <?= ($this->router->fetch_class() == 'obat') ? 'active' : '' ?>">
-        <a href="<?= site_url('obat') ?>" class="menu-link">
-          <i class="menu-icon tf-icons ti ti-capsule"></i>
-          <div data-i18n="Obat">Obat</div>
         </a>
       </li>
 
@@ -81,7 +80,7 @@
       <li class="menu-item <?= ($this->router->fetch_class() == 'riwayat_berobat') ? 'active' : '' ?>">
         <a href="<?= site_url('riwayat_berobat') ?>" class="menu-link">
           <i class="menu-icon tf-icons ti ti-notebook"></i>
-         <span class="menu-text">Riwayat Berobat</span>
+          <span class="menu-text">Riwayat Berobat</span>
         </a>
       </li>
     <?php endif; ?>
