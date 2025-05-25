@@ -6,7 +6,7 @@ class Pasien extends CI_Controller
         parent::__construct();
         $this->load->model('Doctor_model');
     }
-    
+
     public function index()
     {
         $id_user = $this->session->userdata('id_user');
@@ -32,4 +32,19 @@ class Pasien extends CI_Controller
             echo json_encode(['error' => $e->getMessage()]);
         }
     }
+
+    public function delete($id)
+    {
+        $this->load->model('Pasien_model');
+
+        $pasien = $this->Pasien_model->get_by_id($id);
+
+        if (!$pasien) {
+            show_404();
+        }
+
+        $this->Pasien_model->delete($id);
+        echo json_encode(['status' => true]);
+    }
+
 }

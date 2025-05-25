@@ -76,6 +76,7 @@ $route['doctor'] = 'doctor/index';
 
 $route['pasien'] = 'pasien/index';
 $route['pasien/get_data'] = 'pasien/get_data';
+$route['pasien/delete/(:num)'] = 'pasien/delete/$1';
 
 $route['doctor/store'] = 'doctor/store';
 $route['doctor/get_data'] = 'doctor/get_data';

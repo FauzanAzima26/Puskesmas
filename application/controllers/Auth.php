@@ -71,7 +71,7 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim|min_length[3]|max_length[50]');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[tb_users.email]|trim');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|max_length[50]');
-        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required|in_list[L,P]');
+        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required|in_list[Laki-Laki,Perempuan]');
         $this->form_validation->set_rules('nik', 'NIK', 'numeric|exact_length[2]');
         $this->form_validation->set_rules('no_bpjs', 'No BPJS', 'max_length[2]');
         $this->form_validation->set_rules('no_hp', 'No HP', 'numeric|min_length[2]|max_length[12]');
@@ -105,7 +105,7 @@ class Auth extends CI_Controller
                 $config = [
                     'upload_path' => $upload_path,
                     'allowed_types' => 'jpg|jpeg|png|gif',
-                    'max_size' => 2048, // 2MB
+                    'max_size' => 3048, // 2MB
                     'file_name' => 'avatar_' . time() . '_' . bin2hex(random_bytes(4)),
                     'overwrite' => false,
                     'file_ext_tolower' => true,

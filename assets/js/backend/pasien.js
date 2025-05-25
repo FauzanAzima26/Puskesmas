@@ -21,29 +21,29 @@ const table = $(".pasien").DataTable({
 			data: null,
 			render: (data, type, row, meta) => meta.row + 1,
 		},
-		{
-			data: "nama",
-		},
-		{
-			data: "nik",
-		},
-		{
-			data: "no_bpjs",
-		},
-		{
-			data: "jenis_kelamin",
-		},
-		{
-			data: "alamat",
-		},
-		{
-			data: "tgl_lahir",
-		},
-		{
-			data: "no_hp",
-		},
+		{ data: "nama" },
+		{ data: "nik" },
+		{ data: "no_bpjs" },
+		{ data: "jenis_kelamin" },
+		{ data: "alamat" },
+		{ data: "tgl_lahir" },
+		{ data: "no_hp" },
 		{
 			data: "avatar",
+			render: function (data, type, row) {
+				const imageUrl = `http://localhost/CI/www.puskesmas-digital.com/uploads/avatar/${
+					data || "default.png"
+				}`;
+				return `
+			<img src="${imageUrl}" alt="Avatar" style="
+				width: 60px;
+				height: 60px;
+				object-fit: cover;
+				border-radius: 50%;
+				border: 2px solid #e0e0e0;
+				box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+			">`;
+			},
 		},
 		{
 			data: null,
@@ -107,4 +107,31 @@ $("#form-riwayat-berobat").submit(function (e) {
 $(document).on("click", ".detail-btn", function () {
 	const idPasien = $(this).data("id");
 	window.location.href = `http://localhost/CI/www.puskesmas-digital.com/index.php/riwayat_berobat/index/${idPasien}`;
+});
+
+$(document).on("click", ".delete-btn", function () {
+	const idPasien = $(this).data("id");
+
+	Swal.fire({
+		title: "Apakah kamu yakin?",
+		text: "Data pasien akan dihapus secara permanen!",
+		icon: "warning",
+		showCancelButton: true,
+		confirmButtonText: "Ya, hapus!",
+		cancelButtonText: "Batal",
+	}).then((result) => {
+		if (result.isConfirmed) {
+			$.ajax({
+				url: `http://localhost/CI/www.puskesmas-digital.com/index.php/pasien/delete/${idPasien}`,
+				method: "POST",
+				success: function (res) {
+					Swal.fire("Terhapus!", "Data pasien berhasil dihapus.", "success");
+					$(".pasien").DataTable().ajax.reload(null, false);
+				},
+				error: function () {
+					Swal.fire("Gagal!", "Terjadi kesalahan saat menghapus data.", "error");
+				},
+			});
+		}
+	});
 });

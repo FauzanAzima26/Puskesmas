@@ -18,4 +18,13 @@ class Pasien_model extends CI_Model
         return $this->db->get_where('tb_pasien', ['id_user' => $user_id])->row();
     }
 
+    public function get_by_id($id)
+    {
+        return $this->db->get_where('tb_pasien', ['id_pasien' => $id])->row();
+    }
+
+    public function delete($id)
+    {
+        return $this->db->delete('tb_pasien', ['id_pasien' => $id]);
+    }
 }
