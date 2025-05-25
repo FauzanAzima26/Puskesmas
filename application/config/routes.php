@@ -86,6 +86,8 @@ $route['doctor/delete/(:num)'] = 'doctor/delete/$1';
 
 
 $route['obat'] = 'obat/index';
+$route['obat/store'] = 'obat/store';
+$route['obat/get_data'] = 'obat/get_data';
 
 $route['penyakit'] = 'penyakit/index';
 
