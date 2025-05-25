@@ -90,6 +90,8 @@ $route['obat/store'] = 'obat/store';
 $route['obat/get_data'] = 'obat/get_data';
 
 $route['penyakit'] = 'penyakit/index';
+$route['penyakit/store'] = 'penyakit/store';
+$route['penyakit/get_data'] = 'penyakit/get_data';
 
 $route['ruangan'] = 'ruangan/index';
 
