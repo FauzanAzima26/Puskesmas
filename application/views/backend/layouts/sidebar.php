@@ -5,9 +5,10 @@
   <div class="app-brand demo">
     <a href="<?= site_url('dashboard') ?>" class="app-brand-link">
       <span class="app-brand-logo demo">
-        <!-- SVG logo here -->
+        <img src="<?= base_url('assets/img/puskesmas/puskesmas-seeklogo.png') ?>" alt="Logo Puskesmas" width="32"
+          height="32">
       </span>
-      <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
+      <span class="app-brand-text demo menu-text fw-bold">Puskesmas</span>
     </a>
 
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">

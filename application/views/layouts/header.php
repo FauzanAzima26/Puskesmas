@@ -16,7 +16,7 @@
   <meta name="description" content="" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="<?= base_url('assets/img/favicon/favicon.ico') ?>" />
+  <link rel="icon" type="image/x-icon" href="<?= base_url('assets/img/puskesmas/puskesmas-seeklogo.png') ?>" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />

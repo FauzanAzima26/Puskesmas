@@ -12,7 +12,7 @@
 
     <meta name="description" content="" />
 
-    <link rel="icon" type="image/x-icon" href="<?= base_url('assets/img/favicon/favicon.ico') ?>" />
+    <link rel="icon" type="image/x-icon" href="<?= base_url('assets/img/puskesmas/puskesmas-seeklogo.png') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/vendor/fonts/fontawesome.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/vendor/fonts/tabler-icons.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/vendor/fonts/flag-icons.css') ?>" />
