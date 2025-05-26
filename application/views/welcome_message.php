@@ -241,7 +241,7 @@
                 </div>
                 <div class="col-lg-4 d-none d-lg-block">
                   <div class="bg-body nav-img-col p-2">
-                    <img src="../../assets/img/front-pages/misc/nav-item-col-img.png" alt="nav item col image"
+                    <img src="<?= base_url('assets/img/front-pages/misc/nav-item-col-img.png') ?>" alt="nav item col image"
                       class="w-100" />
                   </div>
                 </div>
@@ -358,7 +358,7 @@
       <div class="features-icon-wrapper row gx-0 gy-6 g-sm-12">
         <div class="col-lg-4 col-sm-6 text-center features-icon-box">
           <div class="text-center mb-4">
-            <img src="../../assets/img/front-pages/icons/laptop.png" alt="laptop charging" />
+            <img src="<?= base_url('assets/img/front-pages/icons/rocket.png') ?>" alt="transition up" class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" /><img src="<?= base_url('assets/img/front-pages/icons/rocket.png') ?>" alt="transition up" class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" /><img src="<?= base_url('assets/img/front-pages/icons/laptop.png')?>" alt="laptop charging" />
           </div>
           <h5 class="mb-2">Quality Code</h5>
           <p class="features-icon-description">
@@ -367,7 +367,7 @@
         </div>
         <div class="col-lg-4 col-sm-6 text-center features-icon-box">
           <div class="text-center mb-4">
-            <img src="../../assets/img/front-pages/icons/rocket.png" alt="transition up" />
+            <img src="<?= base_url('assets/img/front-pages/icons/rocket.png') ?>" alt="transition up" class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" /><img src="<?= base_url('assets/img/front-pages/icons/rocket.png') ?>" alt="transition up" class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" /><img src="<?= base_url('assets/img/front-pages/icons/rocket.png')?>" alt="transition up" />
           </div>
           <h5 class="mb-2">Continuous Updates</h5>
           <p class="features-icon-description">
@@ -376,7 +376,7 @@
         </div>
         <div class="col-lg-4 col-sm-6 text-center features-icon-box">
           <div class="text-center mb-4">
-            <img src="../../assets/img/front-pages/icons/paper.png" alt="edit" />
+            <img src="<?= base_url('assets/img/front-pages/icons/rocket.png') ?>" alt="transition up" class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" /><img src="<?= base_url('assets/img/front-pages/icons/rocket.png') ?>" alt="transition up" class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" /><img src="<?= base_url('assets/img/front-pages/icons/paper.png')?>" alt="edit" />
           </div>
           <h5 class="mb-2">Stater-Kit</h5>
           <p class="features-icon-description">
@@ -385,7 +385,7 @@
         </div>
         <div class="col-lg-4 col-sm-6 text-center features-icon-box">
           <div class="text-center mb-4">
-            <img src="../../assets/img/front-pages/icons/check.png" alt="3d select solid" />
+            <img src="<?= base_url('assets/img/front-pages/icons/check.png')?>" alt="3d select solid" />
           </div>
           <h5 class="mb-2">API Ready</h5>
           <p class="features-icon-description">
@@ -394,14 +394,14 @@
         </div>
         <div class="col-lg-4 col-sm-6 text-center features-icon-box">
           <div class="text-center mb-4">
-            <img src="../../assets/img/front-pages/icons/user.png" alt="lifebelt" />
+            <img src="<?= base_url('assets/img/front-pages/icons/user.png')?>" alt="lifebelt" />
           </div>
           <h5 class="mb-2">Excellent Support</h5>
           <p class="features-icon-description">An easy-to-follow doc with lots of references and code examples.</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center features-icon-box">
           <div class="text-center mb-4">
-            <img src="../../assets/img/front-pages/icons/keyboard.png" alt="google docs" />
+            <img src="<?= base_url('assets/img/front-pages/icons/keyboard.png')?>" alt="google docs" />
           </div>
           <h5 class="mb-2">Well Documented</h5>
           <p class="features-icon-description">An easy-to-follow doc with lots of references and code examples.</p>
@@ -422,7 +422,7 @@
           </div>
           <h4 class="mb-1">
             <span class="position-relative fw-extrabold z-1">What people say
-              <img src="../../assets/img/front-pages/icons/section-title-icon.png" alt="laptop charging"
+              <img src="<?= base_url('assets/img/front-pages/icons/section-title-icon.png')?>" alt="laptop charging"
                 class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" />
             </span>
           </h4>
@@ -448,8 +448,8 @@
                   <div class="card h-100">
                     <div class="card-body text-body d-flex flex-column justify-content-between h-100">
                       <div class="mb-4">
-                        <img src="../../assets/img/front-pages/branding/logo-1.png" alt="client logo"
-                          class="client-logo img-fluid" />
+                        <img src="<?= base_url('assets/img/front-pages/branding/logo-1.png')?>" alt="client logo"
+                        class="client-logo img-fluid" />
                       </div>
                       <p>
                         “Vuexy is hands down the most useful front end Bootstrap theme I've ever used. I can't wait
@@ -464,7 +464,7 @@
                       </div>
                       <div class="d-flex align-items-center">
                         <div class="avatar me-3 avatar-sm">
-                          <img src="../../assets/img/avatars/1.png" alt="Avatar" class="rounded-circle" />
+                          <img src="<?= base_url('assets/img/avatars/1.png')?>" alt="Avatar" class="rounded-circle" />
                         </div>
                         <div>
                           <h6 class="mb-0">Cecilia Payne</h6>
@@ -478,7 +478,7 @@
                   <div class="card h-100">
                     <div class="card-body text-body d-flex flex-column justify-content-between h-100">
                       <div class="mb-4">
-                        <img src="../../assets/img/front-pages/branding/logo-2.png" alt="client logo"
+                        <img src="<?= base_url('assets/img/front-pages/branding/logo-2.png')?>" alt="client logo"
                           class="client-logo img-fluid" />
                       </div>
                       <p>
@@ -494,7 +494,7 @@
                       </div>
                       <div class="d-flex align-items-center">
                         <div class="avatar me-3 avatar-sm">
-                          <img src="../../assets/img/avatars/2.png" alt="Avatar" class="rounded-circle" />
+                          <img src="<?= base_url('assets/img/avatars/2.png')?>" alt="Avatar" class="rounded-circle" /><img src="<?= base_url('assets/img/avatars/2.png')?>" alt="Avatar" class="rounded-circle" />
                         </div>
                         <div>
                           <h6 class="mb-0">Eugenia Moore</h6>
@@ -508,7 +508,7 @@
                   <div class="card h-100">
                     <div class="card-body text-body d-flex flex-column justify-content-between h-100">
                       <div class="mb-4">
-                        <img src="../../assets/img/front-pages/branding/logo-3.png" alt="client logo"
+                        <img src="<?= base_url('assets/img/front-pages/branding/logo-3.png')?>" src="<?= base_url('assets/img/front-pages/branding/logo-3.png')?>" alt="client logo"
                           class="client-logo img-fluid" />
                       </div>
                       <p>
@@ -524,7 +524,7 @@
                       </div>
                       <div class="d-flex align-items-center">
                         <div class="avatar me-3 avatar-sm">
-                          <img src="../../assets/img/avatars/3.png" alt="Avatar" class="rounded-circle" />
+                          <img src="<?= base_url('assets/img/avatars/3.png')?>" alt="Avatar" class="rounded-circle" />
                         </div>
                         <div>
                           <h6 class="mb-0">Curtis Fletcher</h6>
@@ -538,7 +538,7 @@
                   <div class="card h-100">
                     <div class="card-body text-body d-flex flex-column justify-content-between h-100">
                       <div class="mb-4">
-                        <img src="../../assets/img/front-pages/branding/logo-4.png" alt="client logo"
+                        <img src="<?= base_url('assets/img/front-pages/branding/logo-4.png')?>" alt="client logo"
                           class="client-logo img-fluid" />
                       </div>
                       <p>
@@ -554,7 +554,7 @@
                       </div>
                       <div class="d-flex align-items-center">
                         <div class="avatar me-3 avatar-sm">
-                          <img src="../../assets/img/avatars/4.png" alt="Avatar" class="rounded-circle" />
+                          <img src="<?= base_url('assets/img/avatars/4.png')?>" alt="Avatar" class="rounded-circle" /><img src="<?= base_url('assets/img/avatars/4.png')?>" alt="Avatar" class="rounded-circle" />
                         </div>
                         <div>
                           <h6 class="mb-0">Sara Smith</h6>
@@ -568,7 +568,7 @@
                   <div class="card h-100">
                     <div class="card-body text-body d-flex flex-column justify-content-between h-100">
                       <div class="mb-4">
-                        <img src="../../assets/img/front-pages/branding/logo-5.png" alt="client logo"
+                        <img src="<?= base_url('assets/img/front-pages/branding/logo-5.png')?>" src="<?= base_url('assets/img/front-pages/branding/logo-5.png')?>" alt="client logo"
                           class="client-logo img-fluid" />
                       </div>
                       <p>
@@ -584,7 +584,7 @@
                       </div>
                       <div class="d-flex align-items-center">
                         <div class="avatar me-3 avatar-sm">
-                          <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                          <img src="<?= base_url('assets/img/avatars/5.png')?>" alt="Avatar" class="rounded-circle" />
                         </div>
                         <div>
                           <h6 class="mb-0">Eugenia Moore</h6>
@@ -598,7 +598,7 @@
                   <div class="card h-100">
                     <div class="card-body text-body d-flex flex-column justify-content-between h-100">
                       <div class="mb-4">
-                        <img src="../../assets/img/front-pages/branding/logo-6.png" alt="client logo"
+                        <img src="<?= base_url('assets/img/front-pages/branding/logo-6.png')?>" alt="client logo"
                           class="client-logo img-fluid" />
                       </div>
                       <p>
@@ -614,7 +614,7 @@
                       </div>
                       <div class="d-flex align-items-center">
                         <div class="avatar me-3 avatar-sm">
-                          <img src="../../assets/img/avatars/1.png" alt="Avatar" class="rounded-circle" />
+                          <img src="<?= base_url('assets/img/avatars/1.png')?>" alt="Avatar" class="rounded-circle" />
                         </div>
                         <div>
                           <h6 class="mb-0">Sara Smith</h6>
@@ -640,27 +640,27 @@
         <div class="swiper" id="swiper-clients-logos">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="../../assets/img/front-pages/branding/logo_1-light.png" alt="client logo" class="client-logo"
+              <img src="<?= base_url('assets/img/front-pages/branding/logo_1-light.png')?>" alt="client logo" class="client-logo"
                 data-app-light-img="front-pages/branding/logo_1-light.png"
                 data-app-dark-img="front-pages/branding/logo_1-dark.png" />
             </div>
             <div class="swiper-slide">
-              <img src="../../assets/img/front-pages/branding/logo_2-light.png" alt="client logo" class="client-logo"
+              <img src="<?= base_url('assets/img/front-pages/branding/logo_2-light.png')?>" alt="client logo" class="client-logo"
                 data-app-light-img="front-pages/branding/logo_2-light.png"
                 data-app-dark-img="front-pages/branding/logo_2-dark.png" />
             </div>
             <div class="swiper-slide">
-              <img src="../../assets/img/front-pages/branding/logo_3-light.png" alt="client logo" class="client-logo"
+              <img src="<?= base_url('assets/img/front-pages/branding/logo_3-light.png')?>" alt="client logo" class="client-logo"
                 data-app-light-img="front-pages/branding/logo_3-light.png"
                 data-app-dark-img="front-pages/branding/logo_3-dark.png" />
             </div>
             <div class="swiper-slide">
-              <img src="../../assets/img/front-pages/branding/logo_4-light.png" alt="client logo" class="client-logo"
+              <img src="<?= base_url('assets/img/front-pages/branding/logo_4-light.png')?>" alt="client logo" class="client-logo"
                 data-app-light-img="front-pages/branding/logo_4-light.png"
                 data-app-dark-img="front-pages/branding/logo_4-dark.png" />
             </div>
             <div class="swiper-slide">
-              <img src="../../assets/img/front-pages/branding/logo_5-light.png" alt="client logo" class="client-logo"
+              <img src="<?= base_url('assets/img/front-pages/branding/logo_5-light.png')?>" alt="client logo" class="client-logo"
                 data-app-light-img="front-pages/branding/logo_5-light.png"
                 data-app-dark-img="front-pages/branding/logo_5-dark.png" />
             </div>
@@ -680,7 +680,7 @@
       </div>
       <h4 class="text-center mb-1">
         <span class="position-relative fw-extrabold z-1">Supported
-          <img src="../../assets/img/front-pages/icons/section-title-icon.png" alt="laptop charging"
+          <img src="<?= base_url('assets/img/front-pages/icons/section-title-icon.png')?>" alt="laptop charging"
             class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" />
         </span>
         by Real People
@@ -690,7 +690,7 @@
         <div class="col-lg-3 col-sm-6">
           <div class="card mt-3 mt-lg-0 shadow-none">
             <div class="bg-label-primary border border-bottom-0 border-label-primary position-relative team-image-box">
-              <img src="../../assets/img/front-pages/landing-page/team-member-1.png"
+              <img src="<?= base_url('assets/img/front-pages/landing-page/team-member-1.png')?>"
                 class="position-absolute card-img-position bottom-0 start-50 scaleX-n1-rtl" alt="human image" />
             </div>
             <div class="card-body border border-top-0 border-label-primary text-center">
@@ -702,7 +702,7 @@
         <div class="col-lg-3 col-sm-6">
           <div class="card mt-3 mt-lg-0 shadow-none">
             <div class="bg-label-info border border-bottom-0 border-label-info position-relative team-image-box">
-              <img src="../../assets/img/front-pages/landing-page/team-member-2.png"
+              <img src="<?= base_url('assets/img/front-pages/landing-page/team-member-2.png')?>"
                 class="position-absolute card-img-position bottom-0 start-50 scaleX-n1-rtl" alt="human image" />
             </div>
             <div class="card-body border border-top-0 border-label-info text-center">
@@ -714,7 +714,7 @@
         <div class="col-lg-3 col-sm-6">
           <div class="card mt-3 mt-lg-0 shadow-none">
             <div class="bg-label-danger border border-bottom-0 border-label-danger position-relative team-image-box">
-              <img src="../../assets/img/front-pages/landing-page/team-member-3.png"
+              <img src="<?= base_url('assets/img/front-pages/landing-page/team-member-3.png')?>"
                 class="position-absolute card-img-position bottom-0 start-50 scaleX-n1-rtl" alt="human image" />
             </div>
             <div class="card-body border border-top-0 border-label-danger text-center">
@@ -726,7 +726,7 @@
         <div class="col-lg-3 col-sm-6">
           <div class="card mt-3 mt-lg-0 shadow-none">
             <div class="bg-label-success border border-bottom-0 border-label-success position-relative team-image-box">
-              <img src="../../assets/img/front-pages/landing-page/team-member-4.png"
+              <img src="<?= base_url('assets/img/front-pages/landing-page/team-member-4.png')?>"
                 class="position-absolute card-img-position bottom-0 start-50 scaleX-n1-rtl" alt="human image" />
             </div>
             <div class="card-body border border-top-0 border-label-success text-center">
@@ -748,7 +748,7 @@
       </div>
       <h4 class="text-center mb-1">
         <span class="position-relative fw-extrabold z-1">Tailored pricing plans
-          <img src="../../assets/img/front-pages/icons/section-title-icon.png" alt="laptop charging"
+          <img src="<?= base_url('assets/img/front-pages/icons/section-title-icon.png')?>" alt="laptop charging"
             class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" />
         </span>
         designed for you
@@ -769,7 +769,7 @@
             <span class="switch-label fs-6 text-body ms-3">Pay Annual</span>
           </label>
           <div class="pricing-plans-item position-absolute d-flex">
-            <img src="../../assets/img/front-pages/icons/pricing-plans-arrow.png" alt="pricing plans arrow"
+            <img src="<?= base_url('assets/img/front-pages/icons/pricing-plans-arrow.png')?>" alt="pricing plans arrow"
               class="scaleX-n1-rtl" />
             <span class="fw-medium mt-2 ms-1"> Save 25%</span>
           </div>
@@ -781,7 +781,7 @@
           <div class="card">
             <div class="card-header">
               <div class="text-center">
-                <img src="../../assets/img/front-pages/icons/paper-airplane.png" alt="paper airplane icon"
+                <img src="<?= base_url('assets/img/front-pages/icons/paper-airplane.png')?>" alt="paper airplane icon"
                   class="mb-8 pb-2" />
                 <h4 class="mb-0">Basic</h4>
                 <div class="d-flex align-items-center justify-content-center">
@@ -859,7 +859,7 @@
           <div class="card border border-primary shadow-xl">
             <div class="card-header">
               <div class="text-center">
-                <img src="../../assets/img/front-pages/icons/plane.png" alt="plane icon" class="mb-8 pb-2" />
+                <img src="<?= base_url('assets/img/front-pages/icons/plane.png')?>" alt="plane icon" class="mb-8 pb-2" />
                 <h4 class="mb-0">Team</h4>
                 <div class="d-flex align-items-center justify-content-center">
                   <span class="price-monthly h2 text-primary fw-extrabold mb-0">$29</span>
@@ -936,7 +936,7 @@
           <div class="card">
             <div class="card-header">
               <div class="text-center">
-                <img src="../../assets/img/front-pages/icons/shuttle-rocket.png" alt="shuttle rocket icon"
+                <img src="<?= base_url('assets/img/front-pages/icons/shuttle-rocket.png')?>" alt="shuttle rocket icon"
                   class="mb-8 pb-2" />
                 <h4 class="mb-0">Enterprise</h4>
                 <div class="d-flex align-items-center justify-content-center">
@@ -1020,7 +1020,7 @@
         <div class="col-sm-6 col-lg-3">
           <div class="card border border-primary shadow-none">
             <div class="card-body text-center">
-              <img src="../../assets/img/front-pages/icons/laptop.png" alt="laptop" class="mb-4" />
+              <img src="<?= base_url('assets/img/front-pages/icons/laptop.png')?>" alt="laptop" class="mb-4" />
               <h3 class="mb-0">7.1k+</h3>
               <p class="fw-medium mb-0">
                 Support Tickets<br />
@@ -1032,7 +1032,7 @@
         <div class="col-sm-6 col-lg-3">
           <div class="card border border-success shadow-none">
             <div class="card-body text-center">
-              <img src="../../assets/img/front-pages/icons/user-success.png" alt="laptop" class="mb-4" />
+              <img src="<?= base_url('assets/img/front-pages/icons/user-success.png')?>" alt="laptop" class="mb-4" />
               <h3 class="mb-0">50k+</h3>
               <p class="fw-medium mb-0">
                 Join creatives<br />
@@ -1044,7 +1044,7 @@
         <div class="col-sm-6 col-lg-3">
           <div class="card border border-info shadow-none">
             <div class="card-body text-center">
-              <img src="../../assets/img/front-pages/icons/diamond-info.png" alt="laptop" class="mb-4" />
+              <img src="<?= base_url('assets/img/front-pages/icons/diamond-info.png')?>" alt="laptop" class="mb-4" />
               <h3 class="mb-0">4.8/5</h3>
               <p class="fw-medium mb-0">
                 Highly Rated<br />
@@ -1056,7 +1056,7 @@
         <div class="col-sm-6 col-lg-3">
           <div class="card border border-warning shadow-none">
             <div class="card-body text-center">
-              <img src="../../assets/img/front-pages/icons/check-warning.png" alt="laptop" class="mb-4" />
+              <img src="<?= base_url('assets/img/front-pages/icons/check-warning.png')?>" alt="laptop" class="mb-4" />
               <h3 class="mb-0">100%</h3>
               <p class="fw-medium mb-0">
                 Money Back<br />
@@ -1079,7 +1079,7 @@
       <h4 class="text-center mb-1">
         Frequently asked
         <span class="position-relative fw-extrabold z-1">questions
-          <img src="../../assets/img/front-pages/icons/section-title-icon.png" alt="laptop charging"
+          <img src="<?= base_url('assets/img/front-pages/icons/section-title-icon.png')?>" alt="laptop charging"
             class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" />
         </span>
       </h4>
@@ -1089,7 +1089,7 @@
       <div class="row gy-12 align-items-center">
         <div class="col-lg-5">
           <div class="text-center">
-            <img src="../../assets/img/front-pages/landing-page/faq-boy-with-logos.png" alt="faq boy with logos"
+            <img src="<?= base_url('assets/img/front-pages/landing-page/faq-boy-with-logos.png')?>" alt="faq boy with logos"
               class="faq-image" />
           </div>
         </div>
@@ -1187,7 +1187,7 @@
 
   <!-- CTA: Start -->
   <section id="landingCTA" class="section-py landing-cta position-relative p-lg-0 pb-0">
-    <img src="../../assets/img/front-pages/backgrounds/cta-bg-light.png"
+    <img src="<?= base_url('assets/img/front-pages/backgrounds/cta-bg-light.png')?>"
       class="position-absolute bottom-0 end-0 scaleX-n1-rtl h-100 w-100 z-n1" alt="cta image"
       data-app-light-img="front-pages/backgrounds/cta-bg-light.png"
       data-app-dark-img="front-pages/backgrounds/cta-bg-dark.png" />
@@ -1199,7 +1199,7 @@
           <a href="payment-page.html" class="btn btn-lg btn-primary">Get Started</a>
         </div>
         <div class="col-lg-6 pt-lg-12 text-center text-lg-end">
-          <img src="../../assets/img/front-pages/landing-page/cta-dashboard.png" alt="cta dashboard"
+          <img src="<?= base_url('assets/img/front-pages/landing-page/cta-dashboard.png')?>" alt="cta dashboard"
             class="img-fluid mt-lg-4" />
         </div>
       </div>
@@ -1215,7 +1215,7 @@
       </div>
       <h4 class="text-center mb-1">
         <span class="position-relative fw-extrabold z-1">Let's work
-          <img src="../../assets/img/front-pages/icons/section-title-icon.png" alt="laptop charging"
+          <img src="<?= base_url('assets/img/front-pages/icons/section-title-icon.png')?>" alt="laptop charging"
             class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" />
         </span>
         together
@@ -1224,9 +1224,9 @@
       <div class="row g-6">
         <div class="col-lg-5">
           <div class="contact-img-box position-relative border p-2 h-100">
-            <img src="../../assets/img/front-pages/icons/contact-border.png" alt="contact border"
+            <img src="<?= base_url('assets/img/front-pages/icons/contact-border.png')?>" alt="contact border"
               class="contact-border-img position-absolute d-none d-lg-block scaleX-n1-rtl" />
-            <img src="../../assets/img/front-pages/landing-page/contact-customer-service.png"
+            <img src="<?= base_url('assets/img/front-pages/landing-page/contact-customer-service.png')?>"
               alt="contact customer service" class="contact-img w-100 scaleX-n1-rtl" />
             <div class="p-4 pb-2">
               <div class="row g-4">
@@ -1299,7 +1299,7 @@
 <!-- Footer: Start -->
 <footer class="landing-footer bg-body footer-text">
   <div class="footer-top position-relative overflow-hidden z-1">
-    <img src="../../assets/img/front-pages/backgrounds/footer-bg-light.png" alt="footer bg"
+    <img src="<?= base_url('assets/img/front-pages/backgrounds/footer-bg-light.png')?>" alt="footer bg"
       class="footer-bg banner-bg-img z-n1" data-app-light-img="front-pages/backgrounds/footer-bg-light.png"
       data-app-dark-img="front-pages/backgrounds/footer-bg-dark.png" />
     <div class="container">
@@ -1380,9 +1380,9 @@
         <div class="col-lg-3 col-md-4">
           <h6 class="footer-title mb-6">Download our app</h6>
           <a href="javascript:void(0);" class="d-block mb-4"><img
-              src="../../assets/img/front-pages/landing-page/apple-icon.png" alt="apple icon" /></a>
+              src="<?= base_url('assets/img/front-pages/landing-page/apple-icon.png')?>" alt="apple icon" /></a>
           <a href="javascript:void(0);" class="d-block"><img
-              src="../../assets/img/front-pages/landing-page/google-play-icon.png" alt="google play icon" /></a>
+              src="<?= base_url('assets/img/front-pages/landing-page/google-play-icon.png')?>" alt="google play icon" /></a>
         </div>
       </div>
     </div>
@@ -1400,16 +1400,16 @@
       </div>
       <div>
         <a href="https://github.com/pixinvent" class="me-3" target="_blank">
-          <img src="../../assets/img/front-pages/icons/github.svg" alt="github icon" />
+          <img src="<?= base_url('assets/img/front-pages/icons/github.svg')?>" alt="github icon" />
         </a>
         <a href="https://www.facebook.com/pixinvents/" class="me-3" target="_blank">
-          <img src="../../assets/img/front-pages/icons/facebook.svg" alt="facebook icon" />
+          <img src="<?= base_url('assets/img/front-pages/icons/facebook.svg')?>" alt="facebook icon" />
         </a>
         <a href="https://twitter.com/pixinvents" class="me-3" target="_blank">
-          <img src="../../assets/img/front-pages/icons/twitter.svg" alt="twitter icon" />
+          <img src="<?= base_url('assets/img/front-pages/icons/twitter.svg')?>" alt="twitter icon" />
         </a>
         <a href="https://www.instagram.com/pixinvents/" target="_blank">
-          <img src="../../assets/img/front-pages/icons/instagram.svg" alt="google icon" />
+          <img src="<?= base_url('assets/img/front-pages/icons/instagram.svg')?>" alt="google icon" />
         </a>
       </div>
     </div>
